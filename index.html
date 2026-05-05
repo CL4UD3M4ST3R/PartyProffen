@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PartyProffen — profesjonell utleie av lyd, lys og effektutstyr til arrangementer i Moss og omegn. Dekker 100 km radius.">
+  <meta name="keywords" content="lydutleie, lysutleie, lyd lys effekter, party, event, moss, Østlandet, DJ, skoleball, russeslipp">
+  <meta property="og:title" content="PartyProffen — Lyd, Lys & Effekter til ditt arrangement">
+  <meta property="og:description" content="Vi leverer komplett lyd, lys og effektutstyr til arrangementer i Moss og omegn. Sommerfest, skoleball, russeslipp, firmafest og mer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://partyproffen.no">
+  <title>PartyProffen — Lyd, Lys & Effekter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#hjem" class="logo" aria-label="PartyProffen forsiden">Party<span>Proffen</span></a>
+      <nav class="nav" id="nav" aria-label="Hovednavigasjon">
+        <ul class="nav-list">
+          <li><a href="#hjem" class="nav-link">Hjem</a></li>
+          <li><a href="#tjenester" class="nav-link">Tjenester</a></li>
+          <li><a href="#dj" class="nav-link">DJ</a></li>
+          <li><a href="#om-oss" class="nav-link">Om oss</a></li>
+          <li><a href="#galleri" class="nav-link">Galleri</a></li>
+          <li><a href="#kalender" class="nav-link">Kalender</a></li>
+          <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+        </ul>
+      </nav>
+      <a href="#kontakt" class="btn btn-primary header-cta">Book nå</a>
+      <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul class="mobile-nav-list">
+      <li><a href="#hjem" class="mobile-nav-link">Hjem</a></li>
+      <li><a href="#tjenester" class="mobile-nav-link">Tjenester</a></li>
+      <li><a href="#dj" class="mobile-nav-link">DJ</a></li>
+      <li><a href="#om-oss" class="mobile-nav-link">Om oss</a></li>
+      <li><a href="#galleri" class="mobile-nav-link">Galleri</a></li>
+      <li><a href="#kalender" class="mobile-nav-link">Kalender</a></li>
+      <li><a href="#kontakt" class="mobile-nav-link">Kontakt</a></li>
+      <li><a href="#kontakt" class="btn btn-primary mobile-cta">Book nå</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- 1. HERO -->
+    <section class="hero" id="hjem">
+      <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content fade-in">
+        <p class="hero-label">Lyd &middot; Lys &middot; Effekter &middot; DJ</p>
+        <h1 class="hero-title">Vi leverer<br><span class="glow-text">opplevelsen</span></h1>
+        <p class="hero-sub">Profesjonelt lyd- og lysutstyr til ditt arrangement — fra intime hagefester til storslåtte skoleball og firmafester. Basert i Moss, dekker vi hele Østlandsområdet.</p>
+        <div class="hero-buttons">
+          <a href="#tjenester" class="btn btn-primary">Se våre pakker</a>
+          <a href="#kontakt" class="btn btn-outline">Kontakt oss</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- 2. TJENESTER -->
+    <section class="section" id="tjenester">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Pakker &amp; priser</span>
+          <h2 class="section-title">Våre pakker</h2>
+          <p class="section-sub">Velg pakken som passer ditt arrangement — eller la oss sette sammen noe helt unikt for deg.</p>
+        </div>
+
+        <div class="packages-grid">
+
+          <div class="package-card fade-in">
+            <div class="package-icon">🔊</div>
+            <h3 class="package-name">BASIC</h3>
+            <div class="package-price">kr 3 000</div>
+            <ul class="package-features">
+              <li>2 × bærbare høyttalere (Soundboks-type)</li>
+              <li>Perfekt for hagefester og private feiringer</li>
+              <li>Enkel oppsett og drift</li>
+              <li>Levering og henting inkludert innen 30 km</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-outline package-btn" data-select-package="Basic">Bestill nå</a>
+          </div>
+
+          <div class="package-card package-card--featured fade-in">
+            <div class="package-badge">Mest populær</div>
+            <div class="package-icon">🎛️</div>
+            <h3 class="package-name">PREMIUM</h3>
+            <div class="package-price">kr 7 500</div>
+            <ul class="package-features">
+              <li>Komplett PA-system (topper + subber + forsterker)</li>
+              <li>Røykmaskin (haze)</li>
+              <li>Grunnleggende lysoppsett</li>
+              <li>Opprigg og nedrigg inkludert</li>
+              <li>Ideelt for sommerfester og bursdager</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-primary package-btn" data-select-package="Premium">Bestill nå</a>
+          </div>
+
+          <div class="package-card fade-in">
+            <div class="package-icon">🏆</div>
+            <h3 class="package-name">ELITE</h3>
+            <div class="package-price">kr 14 000</div>
+            <ul class="package-features">
+              <li>Alt i Premium-pakken</li>
+              <li>Full lysrigg (lyskastere + effektlys)</li>
+              <li>Ekstra subber for dypere bass</li>
+              <li>Profesjonell tekniker på plass</li>
+              <li>Perfekt for skoleball, russeslipp og firmafester</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-outline package-btn" data-select-package="Elite">Bestill nå</a>
+          </div>
+
+        </div>
+
+        <div class="custom-solution fade-in">
+          <h3>Trenger du noe spesialtilpasset?</h3>
+          <p>Hvert arrangement er unikt. Vi setter gjerne sammen en skreddersydd løsning basert på dine ønsker, lokalet og budsjettet ditt. Ingen arrangement er for stort eller for lite.</p>
+          <a href="#kontakt" class="btn btn-outline" data-select-package="Skreddersydd">Ta kontakt for tilbud</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DJ -->
+    <section class="section section--dark" id="dj">
+      <div class="container">
+        <div class="dj-inner fade-in">
+          <div class="dj-text">
+            <span class="section-label">Underholdning</span>
+            <h2 class="section-title">DJ til ditt arrangement</h2>
+            <p>La <strong>DJ Proffen</strong> ta seg av stemningen — hele kvelden. Med et bredt musikkregister og sans for dansegulvets puls sørger han for at festen huskes lenge etter siste låt.</p>
+            <p>DJ-tjeneste kan kombineres med alle utstyrspakkene for en komplett eventopplevelse der alt er koordinert og klart fra første stund. Én kontakt, én helhetlig opplevelse.</p>
+            <ul class="dj-features">
+              <li>Tilpasset musikk for alle sjangre og anledninger</li>
+              <li>Profesjonelt utstyr og backup-system</li>
+              <li>Skreddersydd setliste etter dine ønsker</li>
+              <li>Kan kombineres med alle utstyrspakker</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-primary" data-select-package="Kun DJ">Book DJ</a>
+          </div>
+          <div class="dj-visual">
+            <div class="dj-avatar">
+              <div class="dj-avatar-inner">
+                <span class="dj-icon">🎧</span>
+                <p class="dj-name">DJ Proffen</p>
+                <p class="dj-tagline">PartyProffen &middot; Resident DJ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OM OSS -->
+    <section class="section" id="om-oss">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Hvem er vi?</span>
+          <h2 class="section-title">Om PartyProffen</h2>
+        </div>
+        <div class="about-inner fade-in">
+          <div class="about-text">
+            <p>PartyProffen er drevet av en lidenskap for å skape uforglemmelige opplevelser gjennom lyd, lys og underholdning. Vi tror at riktig stemning er nøkkelen til et vellykket arrangement — og vi leverer akkurat det.</p>
+            <p>Basert i Moss leverer vi til arrangementer i hele Østlandsområdet, inntil 100 km radius. Vi tilbyr komplett service fra start til slutt: planlegging, levering, opprigg, teknisk support under arrangementet og ryddig nedrigg etterpå.</p>
+            <p>Du skal ikke bekymre deg for det tekniske. Det er vår jobb.</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-icon">📍</span>
+              <strong>100 km radius</strong>
+              <span>Moss og omegn</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">🔧</span>
+              <strong>Komplett service</strong>
+              <span>Opprigg &amp; nedrigg</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">✨</span>
+              <strong>Skreddersydd</strong>
+              <span>Tilpasset ditt behov</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon">🎵</span>
+              <strong>DJ inkludert</strong>
+              <span>Valgfritt tillegg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. GALLERI -->
+    <section class="section section--dark" id="galleri">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Portefølje</span>
+          <h2 class="section-title">Fra våre arrangementer</h2>
+        </div>
+        <div class="gallery-grid fade-in">
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+        </div>
+        <div class="gallery-footer fade-in">
+          <p>Følg oss på Instagram for mer innhold fra arrangementer</p>
+          <a href="#" class="btn btn-outline" aria-label="Følg @partyproffen på Instagram">@partyproffen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. KALENDER -->
+    <section class="section" id="kalender">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Tilgjengelighet</span>
+          <h2 class="section-title">Tilgjengelighet</h2>
+          <p class="section-sub">Sjekk om din dato er ledig og sikre den så snart som mulig.</p>
+        </div>
+        <div class="calendar-wrapper fade-in">
+          <div class="calendar-container" id="calendar-container"></div>
+          <div class="calendar-legend">
+            <span class="legend-item"><span class="legend-dot legend-dot--available"></span>Ledig</span>
+            <span class="legend-item"><span class="legend-dot legend-dot--busy"></span>Opptatt</span>
+            <span class="legend-item"><span class="legend-dot legend-dot--today"></span>I dag</span>
+          </div>
+        </div>
+        <div class="calendar-cta fade-in">
+          <p>Ser du en ledig dato? Ta kontakt for å sikre den!</p>
+          <a href="#kontakt" class="btn btn-primary">Forespør dato</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. KONTAKT -->
+    <section class="section section--dark" id="kontakt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Ta kontakt</span>
+          <h2 class="section-title">Kontakt oss</h2>
+          <p class="section-sub">Klar for å planlegge noe uforglemmelig? Vi er bare en melding unna.</p>
+        </div>
+        <div class="contact-inner fade-in">
+
+          <div class="contact-info">
+            <h3>Finn oss</h3>
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <div>
+                <strong>Telefon</strong>
+                <a href="tel:00000000">000 00 000</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <strong>E-post</strong>
+                <a href="mailto:kontakt@partyproffen.no">kontakt@partyproffen.no</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Dekningsområde</strong>
+                <span>Moss og omegn — 100 km radius</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">🕐</span>
+              <div>
+                <strong>Responstid</strong>
+                <span>Vanligvis innen 24 timer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap">
+            <!-- TODO: Koble til backend (Cloudflare Workers + Resend/SendGrid) for faktisk e-postutsending -->
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="navn">Navn *</label>
+                  <input type="text" id="navn" name="navn" placeholder="Ditt navn" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="epost">E-post *</label>
+                  <input type="email" id="epost" name="epost" placeholder="din@epost.no" required autocomplete="email">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="telefon">Telefon</label>
+                  <input type="tel" id="telefon" name="telefon" placeholder="000 00 000" autocomplete="tel">
+                </div>
+                <div class="form-group">
+                  <label for="dato">Ønsket dato</label>
+                  <input type="date" id="dato" name="dato">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="arrangement">Type arrangement</label>
+                  <select id="arrangement" name="arrangement">
+                    <option value="">Velg arrangementtype</option>
+                    <option value="Sommerfest">Sommerfest</option>
+                    <option value="Skoleball">Skoleball</option>
+                    <option value="Russeslipp">Russeslipp</option>
+                    <option value="Firmafest">Firmafest</option>
+                    <option value="Bryllup">Bryllup</option>
+                    <option value="Bursdag">Bursdag</option>
+                    <option value="Festival">Festival</option>
+                    <option value="Annet">Annet</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="pakke">Ønsket pakke</label>
+                  <select id="pakke" name="pakke">
+                    <option value="">Velg pakke</option>
+                    <option value="Basic">Basic — kr 3 000</option>
+                    <option value="Premium">Premium — kr 7 500</option>
+                    <option value="Elite">Elite — kr 14 000</option>
+                    <option value="Skreddersydd">Skreddersydd</option>
+                    <option value="Kun DJ">Kun DJ</option>
+                    <option value="DJ + Pakke">DJ + Pakke</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="melding">Melding</label>
+                <textarea id="melding" name="melding" rows="5" placeholder="Fortell oss om arrangementet ditt — sted, antall gjester, spesielle ønsker..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit">Send forespørsel</button>
+            </form>
+
+            <div class="form-success" id="form-success" hidden aria-live="polite">
+              <span class="success-icon">✅</span>
+              <h3>Takk for din henvendelse!</h3>
+              <p>Vi har mottatt forespørselen din og tar kontakt innen 24 timer.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#hjem" class="logo footer-logo">Party<span>Proffen</span></a>
+          <p>Profesjonell lyd, lys og effekter til ditt arrangement. Basert i Moss, dekker vi hele Østlandsområdet.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Følg oss på Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Følg oss på Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Følg oss på TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Snarveier</h4>
+          <ul>
+            <li><a href="#hjem">Hjem</a></li>
+            <li><a href="#tjenester">Tjenester</a></li>
+            <li><a href="#dj">DJ</a></li>
+            <li><a href="#om-oss">Om oss</a></li>
+            <li><a href="#galleri">Galleri</a></li>
+            <li><a href="#kalender">Kalender</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Kontakt</h4>
+          <p><a href="tel:00000000">000 00 000</a></p>
+          <p><a href="mailto:kontakt@partyproffen.no">kontakt@partyproffen.no</a></p>
+          <p>Moss og omegn<br>100 km radius</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 PartyProffen. Alle rettigheter reservert.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
