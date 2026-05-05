@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://api.web3forms.com; frame-src https://challenges.cloudflare.com; form-action 'self'; base-uri 'self';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="PartyProffen — profesjonell utleie av lyd, lys og effektutstyr til arrangementer i Moss og omegn. Dekker 100 km radius.">
   <meta name="keywords" content="lydutleie, lysutleie, lyd lys effekter, party, event, moss, Østlandet, DJ, skoleball, russeslipp">
   <meta property="og:title" content="PartyProffen — Lyd, Lys & Effekter til ditt arrangement">
@@ -300,7 +302,7 @@
           <div class="contact-form-wrap">
             <form class="contact-form" id="contact-form" novalidate>
               <input type="hidden" name="access_key" value="6dcde0bf-aa9b-4822-8ae7-c348994173fd">
-              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="checkbox" name="botcheck" class="botcheck-field" tabindex="-1" autocomplete="off">
               <div class="form-row">
                 <div class="form-group">
                   <label for="navn">Navn *</label>
