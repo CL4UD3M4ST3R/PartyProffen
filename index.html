@@ -297,8 +297,9 @@
           </div>
 
           <div class="contact-form-wrap">
-            <!-- TODO: Koble til backend (Cloudflare Workers + Resend/SendGrid) for faktisk e-postutsending -->
             <form class="contact-form" id="contact-form" novalidate>
+              <input type="hidden" name="access_key" value="6dcde0bf-aa9b-4822-8ae7-c348994173fd">
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
               <div class="form-row">
                 <div class="form-group">
                   <label for="navn">Navn *</label>
@@ -356,8 +357,13 @@
 
             <div class="form-success" id="form-success" hidden aria-live="polite">
               <span class="success-icon">✅</span>
-              <h3>Takk for din henvendelse!</h3>
+              <h3>Takk! Vi tar kontakt snart.</h3>
               <p>Vi har mottatt forespørselen din og tar kontakt innen 24 timer.</p>
+            </div>
+
+            <div class="form-error" id="form-error" hidden aria-live="polite">
+              <span class="form-error-icon">⚠️</span>
+              <p>Noe gikk galt. Prøv igjen, eller send oss en e-post direkte.</p>
             </div>
           </div>
 

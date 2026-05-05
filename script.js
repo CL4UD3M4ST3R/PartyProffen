@@ -249,35 +249,53 @@
 
 
 /* ============================================================
-   CONTACT FORM — client-side handler
+   CONTACT FORM — Web3Forms integration
    ============================================================ */
 (function initContactForm() {
   const form    = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
-  if (!form || !success) return;
+  const errBox  = document.getElementById('form-error');
+  const submitBtn = form ? form.querySelector('.form-submit') : null;
+  if (!form || !success || !errBox || !submitBtn) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    // Basic required-field validation
+    // Required-field validation
     let valid = true;
     ['navn', 'epost'].forEach(id => {
       const f = form.querySelector('#' + id);
-      if (!f.value.trim()) {
-        f.style.borderColor = '#ff4455';
-        valid = false;
-      } else {
-        f.style.borderColor = '';
-      }
+      if (!f.value.trim()) { f.style.borderColor = '#ff4455'; valid = false; }
+      else                  { f.style.borderColor = ''; }
     });
     if (!valid) return;
 
-    // TODO: POST form data to Cloudflare Worker endpoint
-    // Example: POST /api/contact  { navn, epost, telefon, arrangement, dato, pakke, melding }
-    // Worker forwards to Resend / SendGrid and returns 200 OK.
+    // Loading state
+    submitBtn.disabled  = true;
+    submitBtn.textContent = 'Sender...';
+    errBox.hidden = true;
 
-    form.hidden = true;
-    success.hidden = false;
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body:   new FormData(form),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        form.reset();
+        form.hidden   = true;
+        success.hidden = false;
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error(data.message || 'Ukjent feil');
+      }
+    } catch {
+      errBox.hidden = false;
+      errBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Send forespørsel';
+    }
   });
 })();

@@ -365,6 +365,14 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.1;
 .form-success h3 { font-size: 1.45rem; margin-bottom: 10px; }
 .form-success p  { color: var(--color-muted); }
 
+.form-error {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px; margin-top: 4px;
+  background: rgba(255,68,85,.1); border: 1px solid rgba(255,68,85,.35); border-radius: var(--radius-sm);
+  color: #ff6677; font-size: .9rem;
+}
+.form-error-icon { font-size: 1.2rem; flex-shrink: 0; }
+
 /* ============================================================
    FOOTER
    ============================================================ */
