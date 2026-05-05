@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -352,6 +353,16 @@
                 <label for="melding">Melding</label>
                 <textarea id="melding" name="melding" rows="5" placeholder="Fortell oss om arrangementet ditt — sted, antall gjester, spesielle ønsker..."></textarea>
               </div>
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAADJgrxj5WvMBwQFb" data-theme="dark"></div>
+
+              <div class="form-rate-limit" id="rate-limit-msg" hidden aria-live="polite">
+                <span class="form-rate-limit-icon">⏳</span>
+                <div>
+                  <p>Du har sendt flere henvendelser nylig. Vennligst vent litt før du prøver igjen.</p>
+                  <p>Prøv igjen om <strong id="rate-limit-countdown"></strong></p>
+                </div>
+              </div>
+
               <button type="submit" class="btn btn-primary form-submit">Send forespørsel</button>
             </form>
 

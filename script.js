@@ -249,17 +249,77 @@
 
 
 /* ============================================================
-   CONTACT FORM — Web3Forms integration
+   CONTACT FORM — Web3Forms + Turnstile + rate limiting
    ============================================================ */
 (function initContactForm() {
-  const form    = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-  const errBox  = document.getElementById('form-error');
-  const submitBtn = form ? form.querySelector('.form-submit') : null;
-  if (!form || !success || !errBox || !submitBtn) return;
+  const form        = document.getElementById('contact-form');
+  const success     = document.getElementById('form-success');
+  const errBox      = document.getElementById('form-error');
+  const rateMsgEl   = document.getElementById('rate-limit-msg');
+  const countdownEl = document.getElementById('rate-limit-countdown');
+  const submitBtn   = form ? form.querySelector('.form-submit') : null;
+  if (!form || !success || !errBox || !rateMsgEl || !submitBtn) return;
+
+  // --- Rate limit config ---
+  const RL_KEY    = 'pp_submissions';
+  const RL_MAX    = 2;
+  const RL_WINDOW = 30 * 60 * 1000; // 30 minutes in ms
+  let countdownTimer = null;
+
+  function getTimestamps() {
+    try { return JSON.parse(localStorage.getItem(RL_KEY) || '[]'); }
+    catch { return []; }
+  }
+
+  function pruneAndSave(push) {
+    const now = Date.now();
+    const ts  = getTimestamps().filter(t => now - t < RL_WINDOW);
+    if (push) ts.push(now);
+    localStorage.setItem(RL_KEY, JSON.stringify(ts));
+    return ts;
+  }
+
+  function getRateLimitState() {
+    const ts = pruneAndSave(false);
+    if (ts.length < RL_MAX) return { limited: false };
+    return { limited: true, unlockAt: Math.min(...ts) + RL_WINDOW };
+  }
+
+  function formatMM_SS(ms) {
+    const s = Math.ceil(ms / 1000);
+    return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+  }
+
+  function startCooldownUI(unlockAt) {
+    submitBtn.disabled = true;
+    rateMsgEl.hidden   = false;
+
+    function tick() {
+      const remaining = unlockAt - Date.now();
+      if (remaining <= 0) {
+        clearInterval(countdownTimer);
+        countdownTimer     = null;
+        submitBtn.disabled = false;
+        rateMsgEl.hidden   = true;
+        pruneAndSave(false);
+        return;
+      }
+      countdownEl.textContent = formatMM_SS(remaining);
+    }
+    tick();
+    countdownTimer = setInterval(tick, 1000);
+  }
+
+  // Enforce cooldown on page load (persists across reloads)
+  const initial = getRateLimitState();
+  if (initial.limited) startCooldownUI(initial.unlockAt);
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
+
+    // Rate limit check
+    const rl = getRateLimitState();
+    if (rl.limited) { startCooldownUI(rl.unlockAt); return; }
 
     // Required-field validation
     let valid = true;
@@ -271,9 +331,9 @@
     if (!valid) return;
 
     // Loading state
-    submitBtn.disabled  = true;
+    submitBtn.disabled    = true;
     submitBtn.textContent = 'Sender...';
-    errBox.hidden = true;
+    errBox.hidden         = true;
 
     try {
       const res  = await fetch('https://api.web3forms.com/submit', {
@@ -283,17 +343,19 @@
       const data = await res.json();
 
       if (res.ok && data.success) {
+        pruneAndSave(true); // Record successful submission
         form.reset();
-        form.hidden   = true;
+        form.hidden    = true;
         success.hidden = false;
         success.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         throw new Error(data.message || 'Ukjent feil');
       }
     } catch {
+      // Reset Turnstile so user can retry without reloading
+      if (window.turnstile) window.turnstile.reset();
       errBox.hidden = false;
       errBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    } finally {
       submitBtn.disabled    = false;
       submitBtn.textContent = 'Send forespørsel';
     }
