@@ -314,8 +314,11 @@
   const initial = getRateLimitState();
   if (initial.limited) startCooldownUI(initial.unlockAt);
 
+  let submitting = false; // guard against double-submit (e.g. Turnstile auto-requestSubmit)
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    if (submitting) return;
 
     // Rate limit check
     const rl = getRateLimitState();
@@ -330,10 +333,15 @@
     });
     if (!valid) return;
 
+    submitting = true;
+
     // Loading state
     submitBtn.disabled    = true;
     submitBtn.textContent = 'Sender...';
     errBox.hidden         = true;
+
+    // DEBUG — logg FormData-felter for å verifisere at access_key og cf-turnstile-response er med
+    console.log('FormData entries:', [...new FormData(form).entries()].map(([k, v]) => `${k}: ${v}`));
 
     try {
       const res  = await fetch('https://api.web3forms.com/submit', {
@@ -358,6 +366,7 @@
       errBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       submitBtn.disabled    = false;
       submitBtn.textContent = 'Send forespørsel';
+      submitting = false;
     }
   });
 })();
