@@ -355,11 +355,11 @@
     errBox.hidden         = true;
 
     try {
-      // Strip cf-turnstile-response — Web3Forms does not accept this field
       const fd = new FormData(form);
       fd.delete('cf-turnstile-response');
+      fd.delete('access_key');
 
-      const res  = await fetch('https://api.web3forms.com/submit', {
+      const res  = await fetch('https://partyproffen-form.jonasschanke.workers.dev', {
         method: 'POST',
         body:   fd,
       });
