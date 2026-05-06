@@ -101,7 +101,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.1;
 }
 .logo { font-family: var(--font-head); font-size: 1.45rem; font-weight: 900; color: var(--color-white); letter-spacing: -.02em; }
 .logo span { color: var(--color-primary); }
-.header-logo-img { height: 52px; width: auto; display: block; }
+.header-logo-img { height: 68px; width: auto; display: block; }
 
 .nav { display: none; }
 .nav-list { display: flex; align-items: center; gap: 4px; }
