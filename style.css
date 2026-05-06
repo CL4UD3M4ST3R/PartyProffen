@@ -393,7 +393,8 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.1;
 .footer { background: #050505; padding: 80px 0 0; border-top: 1px solid var(--color-border); }
 .footer-inner { display: grid; grid-template-columns: 1fr; gap: 48px; margin-bottom: 56px; }
 
-.footer-logo   { font-size: 1.55rem; display: inline-block; margin-bottom: 14px; }
+.footer-logo   { display: inline-block; margin-bottom: 14px; }
+.footer-logo-img { height: 68px; width: auto; display: block; }
 .footer-brand p { color: var(--color-muted); font-size: .88rem; line-height: 1.7; margin-bottom: 24px; max-width: 280px; }
 
 .social-links { display: flex; gap: 10px; }
