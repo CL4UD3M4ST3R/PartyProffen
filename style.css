@@ -135,7 +135,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.1;
    MOBILE MENU
    ============================================================ */
 .mobile-menu {
-  position: fixed; inset: 0; z-index: 99;
+  position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0; z-index: 99;
   background: rgba(8,8,8,.97); backdrop-filter: blur(20px);
   display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none; transition: opacity var(--ease);
