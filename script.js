@@ -89,19 +89,24 @@
   if (!btn || !menu) return;
 
   function open() {
+    const scrollY = window.scrollY;
+    document.body.style.top = `-${scrollY}px`;
+    document.body.classList.add('menu-open');
     btn.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
     menu.classList.add('open');
     menu.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
   }
 
   function close() {
+    const scrollY = Math.abs(parseInt(document.body.style.top || '0', 10));
+    document.body.classList.remove('menu-open');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
     btn.classList.remove('open');
     btn.setAttribute('aria-expanded', 'false');
     menu.classList.remove('open');
     menu.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
   }
 
   btn.addEventListener('click', () => btn.classList.contains('open') ? close() : open());
