@@ -220,7 +220,15 @@
           <h2 class="section-title">Fra våre arrangementer</h2>
         </div>
         <div class="gallery-grid fade-in">
-          <div class="gallery-item"><img src="Hagefest.jpg" alt="Hagefest" class="gallery-img"></div>
+          <div class="gallery-item" data-lightbox
+               data-title="Hagefest — Moss, 2025"
+               data-desc="Kunden valgte Premiumpakken supplert med 2 ekstra Soundbox 3, noe som sørget for et kraftfullt og klart lydbilde gjennom hele kvelden.">
+            <img src="Hagefest.jpg" alt="Hagefest 2025" class="gallery-img">
+            <div class="gallery-overlay">
+              <span class="gallery-overlay-title">Hagefest — Moss, 2025</span>
+              <span class="gallery-overlay-sub">Premiumpakke &nbsp;·&nbsp; 2 × Soundbox 3</span>
+            </div>
+          </div>
           <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
           <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
           <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
@@ -433,6 +441,19 @@
       </div>
     </div>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Bildevisning">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Lukk">&times;</button>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-desc" id="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

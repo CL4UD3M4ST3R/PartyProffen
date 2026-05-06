@@ -385,3 +385,40 @@
     }
   });
 })();
+
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+(function initLightbox() {
+  const lightbox  = document.getElementById('lightbox');
+  const imgEl     = document.getElementById('lightbox-img');
+  const titleEl   = document.getElementById('lightbox-title');
+  const descEl    = document.getElementById('lightbox-desc');
+  const closeBtn  = document.getElementById('lightbox-close');
+  const backdrop  = document.getElementById('lightbox-backdrop');
+  if (!lightbox) return;
+
+  function open(item) {
+    const img = item.querySelector('.gallery-img');
+    imgEl.src         = img.src;
+    imgEl.alt         = img.alt;
+    titleEl.textContent = item.dataset.title || '';
+    descEl.textContent  = item.dataset.desc  || '';
+    lightbox.hidden     = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+    imgEl.src = '';
+  }
+
+  document.querySelectorAll('[data-lightbox]').forEach(item => {
+    item.addEventListener('click', () => open(item));
+  });
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lightbox.hidden) close(); });
+})();
