@@ -479,6 +479,44 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.1;
 }
 
 /* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+.faq-item { background: var(--bg-card); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; transition: border-color var(--ease); }
+.faq-item:has(.faq-question[aria-expanded="true"]) { border-color: var(--color-border-accent); }
+
+.faq-question {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 24px; background: none; border: none; cursor: pointer; text-align: left;
+  font-family: var(--font-body); font-size: .98rem; font-weight: 600; color: var(--color-white);
+  transition: color var(--ease);
+}
+.faq-question:hover { color: var(--color-primary); }
+
+.faq-icon {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+  border: 1.5px solid var(--color-border-accent);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .3s ease, background var(--ease);
+  position: relative;
+}
+.faq-icon::before,
+.faq-icon::after {
+  content: ''; position: absolute;
+  background: var(--color-primary); border-radius: 2px;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.faq-icon::before { width: 10px; height: 1.5px; }
+.faq-icon::after  { width: 1.5px; height: 10px; }
+
+.faq-question[aria-expanded="true"] .faq-icon { background: rgba(0,212,255,.1); transform: rotate(45deg); }
+
+.faq-answer { padding: 0 24px 20px; }
+.faq-answer p { color: var(--color-muted); font-size: .92rem; line-height: 1.75; margin: 0; }
+
+
+/* ============================================================
    RESPONSIVE — 1024px+
    ============================================================ */
 @media (min-width: 1024px) {
