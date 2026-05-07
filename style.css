@@ -479,6 +479,56 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.1;
 }
 
 /* ============================================================
+   SLIK FUNGERER DET — STEPS
+   ============================================================ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.step-item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 32px 24px;
+}
+
+.step-number {
+  font-family: var(--font-head); font-size: 3rem; font-weight: 900;
+  color: var(--color-primary); line-height: 1;
+  margin-bottom: 16px;
+  text-shadow: 0 0 32px rgba(0,212,255,.3);
+}
+
+.step-title {
+  font-family: var(--font-head); font-size: 1.1rem; font-weight: 700;
+  color: var(--color-white); margin-bottom: 10px;
+}
+
+.step-desc {
+  color: var(--color-muted); font-size: .9rem; line-height: 1.7; max-width: 240px;
+}
+
+.step-connector {
+  width: 1.5px; height: 40px;
+  background: repeating-linear-gradient(to bottom, var(--color-primary) 0, var(--color-primary) 6px, transparent 6px, transparent 12px);
+  margin: 0 auto; opacity: .45;
+}
+
+@media (min-width: 768px) {
+  .steps-grid {
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    align-items: start;
+  }
+  .step-connector {
+    width: 60px; height: 1.5px; margin: 0; margin-top: 52px;
+    background: repeating-linear-gradient(to right, var(--color-primary) 0, var(--color-primary) 6px, transparent 6px, transparent 12px);
+  }
+}
+
+
+/* ============================================================
    FAQ ACCORDION
    ============================================================ */
 .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
