@@ -184,27 +184,39 @@
   const container = document.getElementById('calendar-container');
   if (!container) return;
 
-  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1U7qC78D8Y4FuWjhZldbaazmfRJPr1AruTLzh1kkkRNI/export?format=csv&gid=0';
+  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1U7qC78D8Y4FuWjhZldbaazmfRJPr1AruTLzh1kkkRNI/gviz/tq?tqx=out:csv';
   const CACHE_KEY = 'pp_busy_dates';
 
   async function fetchBusyDates() {
     const cached = sessionStorage.getItem(CACHE_KEY);
     if (cached) {
-      try { return JSON.parse(cached); } catch { /* fall through */ }
+      try {
+        const parsed = JSON.parse(cached);
+        console.log('[Kalender] Laster fra cache:', parsed);
+        return parsed;
+      } catch { /* fall through */ }
     }
+    console.log('[Kalender] Henter fra Google Sheets...');
     const res = await fetch(SHEET_URL);
-    if (!res.ok) throw new Error('fetch failed');
+    console.log('[Kalender] HTTP-status:', res.status, res.url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const text = await res.text();
+    console.log('[Kalender] Rådata (første 200 tegn):', text.slice(0, 200));
     const dates = text.split('\n')
       .slice(1)
       .map(row => row.split(',')[0].trim().replace(/"/g, ''))
       .filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d));
+    console.log('[Kalender] Parsede datoer:', dates);
     sessionStorage.setItem(CACHE_KEY, JSON.stringify(dates));
     return dates;
   }
 
   let busyDates = [];
-  try { busyDates = await fetchBusyDates(); } catch { /* vis kalender uten opptatte datoer */ }
+  try {
+    busyDates = await fetchBusyDates();
+  } catch (err) {
+    console.warn('[Kalender] Klarte ikke hente datoer:', err);
+  }
 
   const DAYS   = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
   const MONTHS = ['Januar','Februar','Mars','April','Mai','Juni','Juli','August','September','Oktober','November','Desember'];
