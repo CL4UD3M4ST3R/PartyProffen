@@ -187,12 +187,7 @@
   // --- OPPTATTE DATOER ---
   // Format: 'ÅÅÅÅ-MM-DD'
   // Legg til nye datoer i denne listen for å markere dem som opptatt.
-  const busyDates = [
-    '2026-05-10', '2026-05-17', '2026-05-24',
-    '2026-06-05', '2026-06-06', '2026-06-13', '2026-06-20', '2026-06-27',
-    '2026-07-04', '2026-07-11', '2026-07-18',
-    '2026-08-08', '2026-08-15', '2026-08-22',
-  ];
+  const busyDates = [];
 
   const DAYS   = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
   const MONTHS = ['Januar','Februar','Mars','April','Mai','Juni','Juli','August','September','Oktober','November','Desember'];
