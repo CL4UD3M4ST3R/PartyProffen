@@ -180,14 +180,31 @@
 /* ============================================================
    CALENDAR
    ============================================================ */
-(function initCalendar() {
+(async function initCalendar() {
   const container = document.getElementById('calendar-container');
   if (!container) return;
 
-  // --- OPPTATTE DATOER ---
-  // Format: 'ÅÅÅÅ-MM-DD'
-  // Legg til nye datoer i denne listen for å markere dem som opptatt.
-  const busyDates = [];
+  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1U7qC78D8Y4FuWjhZldbaazmfRJPr1AruTLzh1kkkRNI/export?format=csv&gid=0';
+  const CACHE_KEY = 'pp_busy_dates';
+
+  async function fetchBusyDates() {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      try { return JSON.parse(cached); } catch { /* fall through */ }
+    }
+    const res = await fetch(SHEET_URL);
+    if (!res.ok) throw new Error('fetch failed');
+    const text = await res.text();
+    const dates = text.split('\n')
+      .slice(1)
+      .map(row => row.split(',')[0].trim().replace(/"/g, ''))
+      .filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d));
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify(dates));
+    return dates;
+  }
+
+  let busyDates = [];
+  try { busyDates = await fetchBusyDates(); } catch { /* vis kalender uten opptatte datoer */ }
 
   const DAYS   = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
   const MONTHS = ['Januar','Februar','Mars','April','Mai','Juni','Juli','August','September','Oktober','November','Desember'];
@@ -204,7 +221,7 @@
     const firstDay = new Date(year, month, 1);
     const lastDay  = new Date(year, month + 1, 0).getDate();
     let startDow   = firstDay.getDay();
-    startDow = startDow === 0 ? 6 : startDow - 1; // Mon-first
+    startDow = startDow === 0 ? 6 : startDow - 1;
 
     let html = `
       <div class="calendar-header">
