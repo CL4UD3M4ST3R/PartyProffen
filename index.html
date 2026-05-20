@@ -269,7 +269,17 @@
               <span class="gallery-overlay-sub">Premiumpakke &nbsp;·&nbsp; 2 × Soundbox 3</span>
             </div>
           </div>
-          <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
+          <div class="gallery-item" data-gallery
+               data-gallery-title="17. mai-fest — 2026"
+               data-gallery-desc="Stor hagefest — 150 gjester. Komplett opprigg med PA-anlegg, DJ, partytelt, byggjerde og festivaldo."
+               data-gallery-images='["BdpeZGFw.jpg","djQA-UPm.jpg","mJr1dyW5.jpg","vC8ZCxZm.jpg","ZK5-0A33.jpg"]'>
+            <img src="BdpeZGFw.jpg" alt="17. mai-fest 2026" class="gallery-img">
+            <span class="gallery-badge">17. mai 2026</span>
+            <div class="gallery-overlay">
+              <span class="gallery-overlay-title">17. mai-fest — 2026</span>
+              <span class="gallery-overlay-sub">150 gjester &nbsp;·&nbsp; Komplett opprigg</span>
+            </div>
+          </div>
           <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
           <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
           <div class="gallery-item"><div class="gallery-placeholder"><span class="gallery-icon">📸</span><span>Bilde kommer</span></div></div>
@@ -577,6 +587,26 @@
       <div class="lightbox-caption">
         <h3 class="lightbox-title" id="lightbox-title"></h3>
         <p class="lightbox-desc" id="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY LIGHTBOX (multi-image) -->
+  <div class="gallery-lb" id="gallery-lb" hidden role="dialog" aria-modal="true" aria-label="Bildevisning">
+    <div class="gallery-lb-backdrop" id="gallery-lb-backdrop"></div>
+    <div class="gallery-lb-inner">
+      <button class="gallery-lb-close" id="gallery-lb-close" aria-label="Lukk">&times;</button>
+      <div class="gallery-lb-img-wrap" id="gallery-lb-img-wrap">
+        <img class="gallery-lb-img" id="gallery-lb-img" src="" alt="">
+        <button class="gallery-lb-prev" id="gallery-lb-prev" aria-label="Forrige bilde">&#8592;</button>
+        <button class="gallery-lb-next" id="gallery-lb-next" aria-label="Neste bilde">&#8594;</button>
+      </div>
+      <div class="gallery-lb-footer">
+        <div class="gallery-lb-caption">
+          <h3 class="gallery-lb-title" id="gallery-lb-title"></h3>
+          <p class="gallery-lb-desc" id="gallery-lb-desc"></p>
+        </div>
+        <span class="gallery-lb-counter" id="gallery-lb-counter"></span>
       </div>
     </div>
   </div>
