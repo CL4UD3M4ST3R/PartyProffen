@@ -1,0 +1,7 @@
+name = "partyproffen-form"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Legg til secrets via: wrangler secret put TURNSTILE_SECRET
+# Legg til secrets via: wrangler secret put RESEND_API_KEY

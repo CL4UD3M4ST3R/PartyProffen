@@ -380,8 +380,7 @@
 
     try {
       const fd = new FormData(form);
-      fd.delete('cf-turnstile-response');
-      fd.delete('access_key');
+      fd.delete('access_key'); // cf-turnstile-response beholdes — Workeren verifiserer server-side
 
       const res  = await fetch('https://partyproffen-form.jonasschanke.workers.dev', {
         method: 'POST',
